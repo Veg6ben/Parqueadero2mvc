@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Parqueadero2.Models.TbUsuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Ingresos</h1>
+
+<p>
+    <a asp-action="Create">Crear Usuario</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td class="text-center table-primary ">
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+                <td class="text-center table-primary ">
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+                <td class="text-center table-primary ">
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+                <td class="text-center table-primary ">
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
