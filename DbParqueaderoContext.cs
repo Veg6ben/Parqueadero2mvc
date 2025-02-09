@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,8 +16,6 @@ public partial class DbParqueaderoContext : DbContext
     }
 
     public virtual DbSet<TbUsuario> TbUsuarios { get; set; }
-
-    public virtual DbSet<TbUsuarioss> TbUsuariosses { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -37,19 +35,22 @@ public partial class DbParqueaderoContext : DbContext
             entity.ToTable("TB_USUARIOS");
 
             entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Modelo).HasColumnName("MODELO");
             entity.Property(e => e.NumeroDePlaca)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("NUMERO_DE_PLACA");
+            entity.Property(e => e.Modelo)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("MODELO");
+            entity.Property(e => e.Color)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("COLOR");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("NOMBRE");
-            entity.Property(e => e.Color)
-                .HasMaxLength(50) // Actualizar configuración
-                .IsUnicode(false)
-                .HasColumnName("COLOR");
         });
 
         OnModelCreatingPartial(modelBuilder);

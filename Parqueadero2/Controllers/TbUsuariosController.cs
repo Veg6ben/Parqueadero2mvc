@@ -53,7 +53,7 @@ namespace Parqueadero2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Cantidad,Precio")] TbUsuario tbUsuario)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Cantidad,Precio,NumeroDePlaca,Modelo,Color")] TbUsuario tbUsuario)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Parqueadero2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Cantidad,Precio")] TbUsuario tbUsuario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Cantidad,Precio,NumeroDePlaca,Modelo,Color")] TbUsuario tbUsuario)
         {
             if (id != tbUsuario.Id)
             {
